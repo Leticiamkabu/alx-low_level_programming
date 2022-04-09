@@ -14,10 +14,9 @@ int main(void)
 	int lower;
 
 	for (lower = 97; lower <= 122; lower++)
-		if (lower == 101 || lower == 113)
+		if (lower == 101 && lower == 113)
 		{
-			lower++;
-			
+			lower++;		
 		}
 		else
 		{

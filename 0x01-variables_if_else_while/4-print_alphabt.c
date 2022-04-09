@@ -17,7 +17,7 @@ int main(void)
 		if (lower == 101 || lower == 113)
 		{
 			lower++;
-			continue;
+			
 		}
 		else
 		{

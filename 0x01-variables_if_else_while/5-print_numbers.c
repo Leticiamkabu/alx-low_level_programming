@@ -16,5 +16,7 @@ int main(void)
 	for (counter = 0; counter < 10; counter++)
 		printf("%d", counter);
 
+	putchar('\n')
+
 	return (0);
 }

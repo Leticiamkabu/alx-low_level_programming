@@ -12,7 +12,7 @@ int main(void)
 {
 	int counter;
 
-	for (counter = 48; counter > 58; counter++)
+	for (counter = 48; counter < 58; counter++)
 		putchar(counter);
 
 

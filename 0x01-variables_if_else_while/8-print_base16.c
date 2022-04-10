@@ -17,7 +17,7 @@ int main(void)
 	for (counter = 48; counter < 58; counter++)
 		putchar(counter);
 
-	for (counter = 97; counter < 102; counter++)
+	for (counter = 97; counter < 103; counter++)
 		putchar(counter);
 
 	putchar('\n');

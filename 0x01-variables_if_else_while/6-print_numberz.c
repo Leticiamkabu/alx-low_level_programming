@@ -15,6 +15,8 @@ int main(void)
 	for (counter = 48; counter < 58; counter++)
 		putchar(counter);
 
+	putchar(counter);
+
 
 
 	return (0);

@@ -1,34 +1,23 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
-/* more headers goes there */
-
 /**
- *  * main - Entry point
- *   *
- *    * Return: Always 0 (Success)
+ * main - Program entry point
+ *
+ * Return: 0 on success. Error code otherwise
  */
-
-/* betty style doc for function main goes there */
 int main(void)
 {
-	int n;
+	int n = 0;
 
-
-	for (n = 48; n < 58; n++)
+	while (n < 10)
 	{
-		if (n == 57)
+		putchar(n + '0');
+		if (n < 9)
 		{
-			putchar(n);
-
+			putchar(',');
+			putchar(' ');
 		}
-		else
-		{
-			putchar(n);
-			putchar(44);
-		}
-		putchar(32);
+		n++;
 	}
+	putchar('\n');
 	return (0);
 }
-

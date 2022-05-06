@@ -1,57 +1,40 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
- *  * str_concat - concatenates two string
- *   *
- *    * @s1: the first string
- *     * @s2: the string to add to @s1
- *      *
- *       * Return: a pointer that points to a newly allocated space which
- *        * contains the contents of @s1, followed by the contents of @s2,
- *         * and null terminated. Should return NULL on failure
- */
+ *str_concat - concatenates two strings.
+ *@s1: first string.
+ *@s2: second string.
+ *Return: pointer to string.
+*/
 
 char *str_concat(char *s1, char *s2)
 {
-	char *s3;
-	unsigned int s1len = 0;
-	unsigned int s2len = 0;
-	unsigned int s3len;
-	unsigned int i = 0;
-	unsigned int j = 0;
+	char *s;
+	int x = 0, y = 0, z = 0;
 
-	if (s1 == NULL)
-		s1 = "";
+	if (s1 != NULL)
+		for (; s1[x]; x++)
+		;
+	if (s2 != NULL)
+		for (; s2[y]; y++)
+		;
 
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	while (s1[s1len])
-	{
-		s1len++;
-	}
-	while (s2[s2len])
-	{
-		s2len++;
-	}
-	s3len = s1len + s2len;
-	s3 = malloc(sizeof(char) * s3len + 1);
-	if (s3 == NULL)
-	{
+	s = malloc(sizeof(char) * (x + y + 1));
+	if (s == NULL)
 		return (NULL);
-	}
-	while (i < s1len)
+
+	while (z < x)
 	{
-		s3[i] = s1[i];
-		i++;
+		s[z] = s1[z];
+		z++;
 	}
-	while (i <= s3len)
+
+	while (z < x + y)
 	{
-		s3[i] = s2[j];
-		i++;
-		j++;
+		s[z] = s2[z - x];
+		z++;
 	}
-	return (s3);
+	s[z] = '\0';
+	return (s);
 }

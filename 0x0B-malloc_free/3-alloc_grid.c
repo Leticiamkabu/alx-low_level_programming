@@ -1,47 +1,44 @@
-#include "holberton.h"
+#include "main.h"
 #include <stdlib.h>
 
 /**
- *  * alloc_grid - returns a pointer to a 2 dimensional array of integers
- *   *
- *    * @width: Width of grid
- *     * @height: height of grid
- *      *
- ** Return: NULL on failure, NULL if @width or @height is 0 or negative,
- *        * on success: a pointer to a 2 dimensional array of integers
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: width of the array.
+ * @height: height of the array.
+ *
+ * Return: pointer to 2 dimensional array of integers
  */
 
 int **alloc_grid(int width, int height)
 {
-	int **ar;
-	int i;
-	int j;
-	int k;
+	int **ngrid;
+	int x, y;
 
-	if (width <= 0 || height <= 0)
+	if (width < 1 || height < 1)
 		return (NULL);
 
-	ar = malloc(sizeof(int *) * height);
-	if (ar == NULL)
-		return (NULL);
-	for (i = 0; i < height; i++)
+	ngrid = malloc(height * sizeof(int *));
+	if (ngrid == NULL)
 	{
-		ar[i] = malloc(sizeof(int) * width);
-		if (ar[i] == NULL)
+		free(ngrid);
+		return (NULL);
+	}
+
+	for (x = 0; x < height; x++)
+	{
+		ngrid[x] = malloc(width * sizeof(int));
+		if (ngrid[x] == NULL)
 		{
-			while (i >= 0)
-			{
-				free(ar[i]);
-				i--;
-			}
-			free(ar);
+			for (x--; x >= 0; x--)
+				free(ngrid[x]);
+			free(ngrid);
 			return (NULL);
 		}
 	}
-	for (j = 0; j < height; j++)
-	{
-		for (k = 0; k < width; k++)
-			ar[j][k] = 0;
-	}
-	return (ar);
+
+	for (x = 0; x < height; x++)
+		for (y = 0; y < width; y++)
+			ngrid[x][y] = 0;
+
+	return (ngrid);
 }

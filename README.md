@@ -1,1 +1,1 @@
-i would start a c program in this repo
+this directory contains even more pointers, arrays and strings in c

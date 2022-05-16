@@ -3,8 +3,11 @@
 
 #include <stdarg.h>
 #include <stdio.h>
-
-typedef struct printer{
+/**
+ *  * this is a fuction
+ */
+typedef struct printer
+{
 	char *symbol;
 	void (*print)(va_list arg);
 } printer_t;

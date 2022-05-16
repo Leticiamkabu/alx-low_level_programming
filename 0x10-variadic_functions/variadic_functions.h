@@ -3,8 +3,10 @@
 
 #include <stdarg.h>
 #include <stdio.h>
-/**
- *  * this is a fuction
+/*
+ *  * struct printer - paramenters to print against
+ *   * @c: type
+ *    * @f: the function to send it to
  */
 typedef struct printer
 {

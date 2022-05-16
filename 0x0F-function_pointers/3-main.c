@@ -1,35 +1,38 @@
+#include "function_pointers.h"
+#include "3-calc.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "3-calc.h"
+
 /**
- *  * main - main function
- *   * @argc: the argument counter
- *    * @argv: the array of arguments
- *     * Return: 0 if successful
+ *  * main - prints the result of an operation, followed by a new line
+ *   *
+ *    * @argc: argument count
+ *     * @argv: arguments passed
+ *      *
+ *       * Return: result of the operation
  */
+
 int main(int argc, char *argv[])
 {
-	int a, b, c;
-	int (*p)(int, int);
+	int num1;
+	int num2;
+	int calc;
+	int (*ptr)(int, int);
 
 	if (argc != 4)
-	{
-		printf("Error\n");
-		exit(98);
-	}
+		printf("Error\n"), exit(98);
+	if (argv[2][1] != '\0')
+		printf("Error\n"), exit(99);
 
-	a = atoi(argv[1]);
-	b = atoi(argv[3]);
-
-	p = get_op_func(argv[2]);
-	
-	if (p == NULL)
+	ptr = get_op_func(argv[2]);
+	if (ptr != NULL)
 	{
-		printf("Error\n");
-		exit(99);
+		num1 = atoi(argv[1]);
+		num2 = atoi(argv[3]);
+		calc = (*ptr)(num1, num2);
+		printf("%d\n", calc);
 	}
-	c = (*p)(a, b);
-	
-	printf("%d\n", c);
+	else
+		printf("Error\n"), exit(99);
 	return (0);
 }
